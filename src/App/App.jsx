@@ -1,17 +1,21 @@
 import React from "react";
-import { SideMenu, Header } from "../Components/index";
-import { CssBaseline } from "@material-ui/core";
-import { AppStyles } from "./AppStyles";
+import { SideMenu, Header, Home } from "../Components/index";
+import { CssBaseline, ThemeProvider } from "@material-ui/core";
+import { AppStyles, AppTheme } from "./AppStyles";
 
 function App() {
   const styles = AppStyles();
+  const theme = AppTheme;
   return (
     <>
-      <SideMenu />
-      <div className={styles.appMain}>
-        <Header />
-      </div>
-      <CssBaseline />
+      <ThemeProvider theme={theme}>
+        <SideMenu />
+        <div className={styles.appMain}>
+          <Header />
+          <Home />
+        </div>
+        <CssBaseline />
+      </ThemeProvider>
     </>
   );
 }
